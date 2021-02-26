@@ -129,6 +129,41 @@ var world_Image = new function() {
   },
 
   this.missions = {
+    'textures/maps/FLL2018.jpg': {
+      obstacles: [
+        // Step Counter (M02):
+        [[50, 0, 0], [7, 7, 7], [0,0,0], '#666666'],
+        /*// Slide (M03):
+        [[0, -2, 0], [4, 10, 10], [0, 0.872664625997165, 0], '#666666'],
+        // Bench (M04):
+        [[-67, 15, 0], [20, 7, 7], [0, -2.87979326579064, 0], '#666666'],
+        // Basketball (M05):
+        [[-52, 49, 0], [7, 7, 20], [0, -2.32128790515246, 0], '#666666'],
+        // Push ups (M06):
+        [[12, -7, 0], [5, 10, 2], [0,0,0], '#666666'],
+        [[15, -10, 0], [3, 3, 20], [0,0,0], '#666666'],
+        [[27, -10, 17], [24, 3, 3], [0,0,0], '#666666'],
+        [[39, -10, 0], [3, 3, 20], [0,0,0], '#666666'],
+        [[42, -7, 0], [5, 10, 2], [0,0,0], '#666666'],
+        // Boccia (M08):
+        [[-32, 57, 0], [20, 3, 8], [0,0,0], '#666666'],
+        [[-32, 60, 8], [10, 10, 3], [0,0,0], '#666666'],
+        // Tire Flip (M09):
+        [[55, -13, 0], [7, 7, 3], [0,0,0], '#666666'],
+        [[55, 0, 0], [10, 10, 5], [0,0,0], '#666666'],
+        [[42, 39, 0], [5, 15, 10], [0,0,0], '#666666'],
+        // Cell Phone (M10):
+        [[55, 48, 0], [10, 5, 2], [0, 0.785398163397448, 0], '#666666'],
+        // Treadmill (M11):
+        [[105, -41, 0], [10, 10, 5], [0,0,0], '#666666'],
+        // Row Machine (M12):
+        [[108, -8, 0], [5, 5, 10], [0,0,0], '#666666'],
+        [[101, -11, 0], [5, 5, 2], [0,0,0], '#666666'],
+        // Weight Machine (M13):
+        [[103, 44, 0], [20, 5, 10], [0,0,0], '#666666'],*/
+      ],
+      magnetics: []
+    },
     'textures/maps/FLL2020.jpg': {
       obstacles: [
         // Step Counter (M02):
@@ -702,6 +737,7 @@ var world_Image = new function() {
   };
 
   // Add box
+  // This method is deprecated. Use function ? instead.
   this.addBoxDeprecated = function(scene, material, size, pos, magnetic=false, physicsOptions=true, visible=true, rot=[0,0,0], faceUV=null) {
     var boxOptions = {
       width: size[0],
@@ -737,8 +773,8 @@ var world_Image = new function() {
     if (physicsOptions !== false) {
       if (physicsOptions === true) {
         physicsOptions = {
-          mass: mass,
-          friction: self.options.wallFriction,
+          mass: 10,
+          friction: 10,
           restitution: self.options.wallRestitution
         };
       }
